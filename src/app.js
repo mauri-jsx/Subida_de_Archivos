@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import UserRoutes from "./routes/UserRoutes.js";
 import { PORT } from "./config.js";
+import ProductRoutes from "./router/ProductRouter.js";
 const app = express();
 
 
@@ -11,8 +11,7 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(UserRoutes);
-
+app.use(ProductRoutes);
 //?settings
 
 app.set("port", PORT);

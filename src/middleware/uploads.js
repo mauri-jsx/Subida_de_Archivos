@@ -10,7 +10,7 @@ cloudinary.config({
     api_secret: CLOUDINARY_API_SECRET,
 });
 
-const fileFilter = (req, file, cb) => {
+const fileFilter = (_req, file, cb) => {
     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
         cb(null, true);
     } else {
@@ -20,7 +20,7 @@ const fileFilter = (req, file, cb) => {
 
 const storage = new CloudinaryStorage({
     cloudinary,
-    params: async (req, file) => {
+    params: async (_req, file) => {
         return {
             folder: "uploads",
             format: "webp",
